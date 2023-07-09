@@ -1,0 +1,37 @@
+package mazeGenerator;
+
+public class Cell {
+	public int row;
+	public int col;
+	public int blockSize = 100;
+	private boolean visited;
+	private boolean[] wallls;
+	
+	public int[] getLeft() {
+		int[] A = {row*blockSize,col*blockSize+blockSize,row*blockSize,col*blockSize};
+		
+		return A;
+	}
+	
+	public int getRight() {
+		
+	}
+	
+	public int getTop() {
+		
+	}
+	
+	public int getBottom() {
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

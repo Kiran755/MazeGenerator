@@ -1,0 +1,49 @@
+package mazeGenerator;
+
+public class Cell {
+	public int row;
+	public int col;
+	private int blockSize = 50;
+	public boolean visited;
+	public boolean[] walls;
+	
+	public Cell(int row,int col) {
+		this.row = row;
+		this.col = col;
+		this.visited = false;
+		this.walls = new boolean[]{true,true,true,true};
+	}
+	
+	
+	
+	public int[] getLeft() {
+		int[] A = {row*blockSize,col*blockSize+blockSize,row*blockSize,col*blockSize};
+		
+		return A;
+	}
+	
+	public int[] getRight() {
+		int[] A = {row*blockSize + blockSize,col*blockSize+blockSize,row*blockSize+blockSize,col*blockSize};
+		return A;
+	}
+	
+	public int[] getTop() {
+		int[] A  = {row*blockSize,col*blockSize,row*blockSize + blockSize,col*blockSize};
+		return A;
+	}
+	
+	public int[] getBottom() {
+		return new int[] {row*blockSize,col*blockSize + blockSize,row*blockSize+blockSize,col*blockSize + blockSize};
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

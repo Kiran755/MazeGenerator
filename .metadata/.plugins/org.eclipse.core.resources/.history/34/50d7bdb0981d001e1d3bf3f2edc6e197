@@ -1,0 +1,15 @@
+package mazeGenerator;
+
+import javax.swing.JPanel;
+
+public class generate extends JPanel {
+	
+	public int rows;
+	public int cols;
+	public int blockSize = 50;
+	
+	
+	public generate() {
+		
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 12 resources" deleteContents="false" description="Delete 12 resources" element1="/MazeGenerator/hs_err_pid10440.log" element10="/MazeGenerator/hs_err_pid27272.log" element11="/MazeGenerator/hs_err_pid28040.log" element12="/MazeGenerator/hs_err_pid30224.log" element2="/MazeGenerator/hs_err_pid11336.log" element3="/MazeGenerator/hs_err_pid12552.log" element4="/MazeGenerator/hs_err_pid16016.log" element5="/MazeGenerator/hs_err_pid19072.log" element6="/MazeGenerator/hs_err_pid20508.log" element7="/MazeGenerator/hs_err_pid24280.log" element8="/MazeGenerator/hs_err_pid24864.log" element9="/MazeGenerator/hs_err_pid25544.log" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="12" stamp="1688929686661"/>
+</session>

@@ -1,0 +1,8 @@
+package mazeGenerator;
+
+import javax.swing.JFrame;
+
+public class maze {
+	JFrame frame = new JFrame("Maze");
+	
+}

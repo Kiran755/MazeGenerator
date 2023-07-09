@@ -1,0 +1,17 @@
+package mazeGenerator;
+
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
+public class generate extends JPanel {
+	
+	public int rows = 10;
+	public int cols = 10;
+	public int blockSize = 50;
+	
+	
+	public generate() {
+		this.setPreferredSize(new Dimension(rows*blockSize,cols*blockSize));
+	}
+}

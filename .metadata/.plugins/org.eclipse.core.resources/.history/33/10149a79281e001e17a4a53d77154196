@@ -1,0 +1,49 @@
+package mazeGenerator;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
+import javax.swing.JPanel;
+
+
+
+
+public class generate extends JPanel {
+	
+	public int rows = 10;
+	public int cols = 10;
+	public int blockSize = 50;
+	
+	
+	public generate() {
+		this.setPreferredSize(new Dimension(rows*blockSize + blockSize,cols*blockSize + blockSize));
+		this.setBackground(Color.white);
+	}
+	
+	
+	public void paintComponent(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g;
+		Cell c = new Cell(0,0);
+		
+		Line2D lin = new Line2D.Float(c.getLeft()[0],c.getLeft()[1],c.getLeft()[2],c.getLeft()[3]);			
+		Line2D lin2 = new Line2D.Float(c.getRight()[0],c.getRight()[1],c.getRight()[2],c.getRight()[3]);
+		Line2D lin3 = new Line2D.Float(c.getBottom()[0],c.getBottom()[1],c.getBottom()[2],c.getBottom()[3]);
+		Line2D lin4 = new Line2D.Float(c.getTop()[0],c.getTop()[1],c.getTop()[2],c.getTop()[3]);
+		g2d.draw(lin);
+		g2d.draw(lin2);
+		g2d.draw(lin3);
+		g2d.draw(lin4);
+
+		
+//		for(int i=0;i<rows;i++) {
+//			for(int j=0;j<cols;j++) {
+//				g2d.setColor((i+j)%2==0?new Color(255,255,255):new Color(157,105,53));
+//				g2d.drawRect(i*blockSize, j*blockSize, blockSize, blockSize);
+//				g2d.fillRect(i*blockSize, j*blockSize, blockSize,blockSize);
+//			}
+//		}
+		
+	}
+}

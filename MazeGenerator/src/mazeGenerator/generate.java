@@ -1,5 +1,6 @@
 package mazeGenerator;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -12,12 +13,12 @@ import java.util.*;
 
 public class generate extends JPanel {
 	
-	public int rows = 50;
-	public int cols = 50;
-	public int blockSize = 10;
+	public int rows = 10;
+	public int cols = 10;
+	public int blockSize = 50;
 	public static int count = 0;
 	
-	Cell[][] graph = new Cell[50][50];
+	Cell[][] graph = new Cell[10][10];
 	Stack<Cell> st = new Stack<Cell>();
 	
 	
@@ -30,12 +31,6 @@ public class generate extends JPanel {
 			for(int j=0;j<graph[i].length;j++) {
 				Cell c = new Cell(i,j);
 				graph[i][j] = c;
-				
-				for(int k=0;k<graph[i][j].adjacentCells.size();k++) {
-					int row = graph[i][j].adjacentCells.get(k).get(0);
-					int col = graph[i][j].adjacentCells.get(k).get(1);
-					
-				}
 			}
 		}
 		
@@ -70,10 +65,6 @@ public class generate extends JPanel {
 		if(!graph[row][col].visited)
 		{
 			graph[row][col].visited = true;
-			Random random = new Random();
-			int min=0;
-			int max = graph[row][col].adjacentCells.size()-1;
-			
 			
 			//randomly shuffle the neighbours 
 			Collections.shuffle(graph[row][col].adjacentCells);
@@ -105,7 +96,7 @@ public class generate extends JPanel {
 		
 		
 		Graphics2D g2d = (Graphics2D) g;
-		
+		g2d.setStroke(new BasicStroke(3));
 		
 		for(int i=0;i<graph.length;i++) {
 			for(int j=0;j<graph[i].length;j++) {
@@ -130,7 +121,7 @@ public class generate extends JPanel {
 				}
 				
 				//bottom
-				if(graph[i][j].walls[2] && (i!=49 || j!=49)) {
+				if(graph[i][j].walls[2] && (i!=9 || j!=9)) {
 					g2d.draw(lin3);					
 				}
 				
@@ -138,33 +129,15 @@ public class generate extends JPanel {
 				if(graph[i][j].walls[3]) {
 					g2d.draw(lin);					
 				}
-//				if(graph[i][j].visited) {
-//					g2d.fillRect(i*blockSize, j*blockSize, blockSize, blockSize);
-//				}
 				
+				if(graph[i][j].paint) {
+					g2d.setColor(Color.cyan);
+					g2d.fillRect(i*blockSize, j*blockSize, blockSize, blockSize);
+					g2d.setColor(Color.black);
+				}
 			}
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-	
-		
-		
-		
-
-		
-//		for(int i=0;i<rows;i++) {
-//			for(int j=0;j<cols;j++) {
-//				g2d.setColor((i+j)%2==0?new Color(255,255,255):new Color(157,105,53));
-//				g2d.drawRect(i*blockSize, j*blockSize, blockSize, blockSize);
-//				g2d.fillRect(i*blockSize, j*blockSize, blockSize,blockSize);
-//			}
-//		}
 		
 	}
 }

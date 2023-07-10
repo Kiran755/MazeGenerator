@@ -4,10 +4,17 @@ package mazeGenerator;
 
 import java.util.*;
 public class Cell {
+	public int total_rows = 10;
+	public int total_cols = 10;
+	public Cell parent;
+	public boolean paint = false;
 	public int row;
 	public int col;
-	private int blockSize = 10;
+	private int blockSize = 50;
 	public boolean visited = false;
+	public float gCost = 0;
+	public float hCost = 0;  // heuristic cost for A star 
+	public float fCost = 0; // will be calculated and updated by the AstarPathFinder when it adds the value of gCost to it.
 	public boolean[] walls;
 	
 	ArrayList<ArrayList<Integer>> adjacentCells = new ArrayList<ArrayList<Integer>>();
@@ -18,6 +25,10 @@ public class Cell {
 		this.visited = false;
 		this.walls = new boolean[]{true,true,true,true};
 		
+		hCost = Math.abs(row - (total_rows-1)) + Math.abs(col - (total_cols-1)); // Calculating the hCost using Manhattan distance : |row-goalRow| + |col - goalCol|
+		
+		
+		
 		if(row-1>=0) {
 			ArrayList<Integer> a1 = new ArrayList<Integer>();
 			a1.add(row-1);
@@ -25,7 +36,7 @@ public class Cell {
 			adjacentCells.add(a1);
 		}
 		
-		if(row+1<=49) {
+		if(row+1<=total_rows - 1) {
 			ArrayList<Integer> a2 = new ArrayList<Integer>();
 			a2.add(row+1);
 			a2.add(col);
@@ -37,7 +48,7 @@ public class Cell {
 			a1.add(col-1);
 			adjacentCells.add(a1);
 		}
-		if(col+1<=49) {
+		if(col+1<=total_cols - 1) {
 			ArrayList<Integer> a2 = new ArrayList<Integer>();
 			a2.add(row);
 			a2.add(col+1);

@@ -20,6 +20,8 @@ public class maze {
 		frame.setLayout(new GridBagLayout());
 		
 		generate g = new generate();
+		AstarPathFinder pathFinder = new AstarPathFinder(g);
+		pathFinder.findPath();
 		frame.add(g);
 		frame.setVisible(true);
 	}
